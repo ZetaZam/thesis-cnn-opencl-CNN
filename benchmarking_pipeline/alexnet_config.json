@@ -1,0 +1,19 @@
+{
+  "conv_layers": [
+    {"in_channels": 3, "out_channels": 64, "kernel_size": 11, "stride": 4, "padding": 0},
+    {"in_channels": 64, "out_channels": 192, "kernel_size": 5, "stride": 1, "padding": 2},
+    {"in_channels": 192, "out_channels": 384, "kernel_size": 3, "stride": 1, "padding": 1},
+    {"in_channels": 384, "out_channels": 256, "kernel_size": 3, "stride": 1, "padding": 1},
+    {"in_channels": 256, "out_channels": 256, "kernel_size": 3, "stride": 1, "padding": 1}
+  ],
+  "pool_layers": [
+    {"kernel_size": 3, "stride": 2},
+    {"kernel_size": 3, "stride": 2},
+    {"kernel_size": 3, "stride": 2}
+  ],
+  "fc_layers": [
+    {"in_features": 9216, "out_features": 4096},
+    {"in_features": 4096, "out_features": 4096},
+    {"in_features": 4096, "out_features": 1000}
+  ]
+}

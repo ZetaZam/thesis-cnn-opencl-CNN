@@ -1,0 +1,245 @@
+{
+    "layers": [
+        {
+            "name": "conv1",
+            "type": "conv",
+            "input": "input",
+            "weight": "features.0.weight",
+            "bias": "features.0.bias",
+            "output": "conv1_out",
+            "width": 227,
+            "height": 227,
+            "kernel_size": 11,
+            "stride": 4,
+            "padding": 0,
+            "input_channels": 3,
+            "output_channels": 64
+        },
+        {
+            "name": "relu1",
+            "type": "relu",
+            "input": "conv1_out",
+            "output": "relu1_out",
+            "size": 193600
+        },
+        {
+            "name": "norm1",
+            "type": "lrn",
+            "input": "relu1_out",
+            "output": "norm1_out",
+            "width": 55,
+            "height": 55,
+            "channels": 64,
+            "local_size": 5,
+            "alpha": 0.0001,
+            "beta": 0.75,
+            "k": 2.0
+        },
+        {
+            "name": "pool1",
+            "type": "maxpool",
+            "input": "norm1_out",
+            "output": "pool1_out",
+            "width": 55,
+            "height": 55,
+            "channels": 64,
+            "kernel_size": 3,
+            "stride": 2
+        },
+        {
+            "name": "conv2",
+            "type": "conv",
+            "input": "pool1_out",
+            "weight": "features.3.weight",
+            "bias": "features.3.bias",
+            "output": "conv2_out",
+            "width": 27,
+            "height": 27,
+            "kernel_size": 5,
+            "stride": 1,
+            "padding": 2,
+            "input_channels": 64,
+            "output_channels": 192
+        },
+        {
+            "name": "relu2",
+            "type": "relu",
+            "input": "conv2_out",
+            "output": "relu2_out",
+            "size": 139968
+        },
+        {
+            "name": "norm2",
+            "type": "lrn",
+            "input": "relu2_out",
+            "output": "norm2_out",
+            "width": 27,
+            "height": 27,
+            "channels": 192,
+            "local_size": 5,
+            "alpha": 0.0001,
+            "beta": 0.75,
+            "k": 2.0
+        },
+        {
+            "name": "pool2",
+            "type": "maxpool",
+            "input": "norm2_out",
+            "output": "pool2_out",
+            "width": 27,
+            "height": 27,
+            "channels": 192,
+            "kernel_size": 3,
+            "stride": 2
+        },
+        {
+            "name": "conv3",
+            "type": "conv",
+            "input": "pool2_out",
+            "weight": "features.6.weight",
+            "bias": "features.6.bias",
+            "output": "conv3_out",
+            "width": 13,
+            "height": 13,
+            "kernel_size": 3,
+            "stride": 1,
+            "padding": 1,
+            "input_channels": 192,
+            "output_channels": 384
+        },
+        {
+            "name": "relu3",
+            "type": "relu",
+            "input": "conv3_out",
+            "output": "relu3_out",
+            "size": 64896
+        },
+        {
+            "name": "conv4",
+            "type": "conv",
+            "input": "relu3_out",
+            "weight": "features.8.weight",
+            "bias": "features.8.bias",
+            "output": "conv4_out",
+            "width": 13,
+            "height": 13,
+            "kernel_size": 3,
+            "stride": 1,
+            "padding": 1,
+            "input_channels": 384,
+            "output_channels": 256
+        },
+        {
+            "name": "relu4",
+            "type": "relu",
+            "input": "conv4_out",
+            "output": "relu4_out",
+            "size": 43264
+        },
+        {
+            "name": "conv5",
+            "type": "conv",
+            "input": "relu4_out",
+            "weight": "features.10.weight",
+            "bias": "features.10.bias",
+            "output": "conv5_out",
+            "width": 13,
+            "height": 13,
+            "kernel_size": 3,
+            "stride": 1,
+            "padding": 1,
+            "input_channels": 256,
+            "output_channels": 256
+        },
+        {
+            "name": "relu5",
+            "type": "relu",
+            "input": "conv5_out",
+            "output": "relu5_out",
+            "size": 43264
+        },
+        {
+            "name": "pool5",
+            "type": "maxpool",
+            "input": "relu5_out",
+            "output": "pool5_out",
+            "width": 13,
+            "height": 13,
+            "channels": 256,
+            "kernel_size": 3,
+            "stride": 2
+        },
+        {
+            "name": "flatten",
+            "type": "flatten",
+            "input": "pool5_out",
+            "output": "flatten_out",
+            "size": 9216
+        },
+        {
+            "name": "fc6",
+            "type": "fc",
+            "input": "flatten_out",
+            "weight": "classifier.1.weight",
+            "bias": "classifier.1.bias",
+            "output": "fc6_out",
+            "input_size": 9216,
+            "output_size": 4096
+        },
+        {
+            "name": "relu6",
+            "type": "relu",
+            "input": "fc6_out",
+            "output": "relu6_out",
+            "size": 4096
+        },
+        {
+            "name": "dropout6",
+            "type": "dropout",
+            "input": "relu6_out",
+            "output": "dropout6_out",
+            "prob": 0.5
+        },
+        {
+            "name": "fc7",
+            "type": "fc",
+            "input": "dropout6_out",
+            "weight": "classifier.4.weight",
+            "bias": "classifier.4.bias",
+            "output": "fc7_out",
+            "input_size": 4096,
+            "output_size": 4096
+        },
+        {
+            "name": "relu7",
+            "type": "relu",
+            "input": "fc7_out",
+            "output": "relu7_out",
+            "size": 4096
+        },
+        {
+            "name": "dropout7",
+            "type": "dropout",
+            "input": "relu7_out",
+            "output": "dropout7_out",
+            "prob": 0.5
+        },
+        {
+            "name": "fc8",
+            "type": "fc",
+            "input": "dropout7_out",
+            "weight": "classifier.6.weight",
+            "bias": "classifier.6.bias",
+            "output": "fc8_out",
+            "input_size": 4096,
+            "output_size": 1000
+        },
+        {
+            "name": "output",
+            "type": "softmax",
+            "input": "fc8_out",
+            "output": "output",
+            "size": 1000
+        }
+    ]
+}

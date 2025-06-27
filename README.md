@@ -8,5 +8,17 @@ A modular OpenCL-based convolutional neural network (CNN) designed for inference
 2. **Benchmarking Pipeline**  
 A complete pipeline to benchmark CNN performance across different hardware backends.
 
-3. **native implementation and dataset prep files**
+3. **native implementation and dataset prep files**  
 Includes native PyTorch-based inference for comparison, dataset preparation scripts, and profiling tools.
+
+
+
+
+## Requirements
+
+- Ubuntu 22.04 LTS  
+- Python 3.x  
+- PyOpenCL  
+- PyTorch  
+- OpenCL drivers (ROCm, CUDA, POCL)  
+- Visual Studio Code (optional, used for development)

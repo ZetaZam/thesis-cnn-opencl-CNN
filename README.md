@@ -7,7 +7,6 @@ A modular OpenCL-based convolutional neural network (CNN) designed for inference
 
 2. **Benchmarking Pipeline**  
 A complete pipeline to benchmark CNN performance across different hardware backends.
-
 since it uses cJSON, you need cJSON files to be in your project directory
 
 4. **native implementation and dataset prep files**  
